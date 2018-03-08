@@ -4,7 +4,8 @@
   "description": "A fundraiser application based on ethereum blockchain technology",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "next dev"
   },
   "repository": {
     "type": "git",
