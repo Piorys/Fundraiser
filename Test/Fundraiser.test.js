@@ -89,8 +89,143 @@ describe('Fundaisers',()=>{
     assert.equal('Description',request.description);
   });
 
-  it('',()=>{
-
+  it('Allows only manager to create requests',async ()=>{
+    try{
+    await fundraiser.methods.createRequest(
+      'Description',
+      '100',
+      accounts[1]
+    ).send({
+      from: accounts[2],
+      gas: '5000000'
+    });
+    assert(false);
+  }catch(error){
+      assert(error);
+    }
   });
+
+  it('Allows for a end to end flow of creating a request, approving it and finalizing it',async ()=>{
+    await fundraiser.methods.createRequest(
+      'Description',
+      web3.utils.toWei('0.02', 'ether'),
+      accounts[1]
+    ).send({
+      from: accounts[0],
+      gas: '5000000'
+    });
+    const beforeBalance = await web3.eth.getBalance(accounts[1]);
+    //Account 1
+    await fundraiser.methods.contribute().send({
+        from: accounts[2],
+        value: web3.utils.toWei('0.1', 'ether')
+      });
+    //Account 2
+    await fundraiser.methods.contribute().send({
+        from: accounts[3],
+        value: web3.utils.toWei('0.1', 'ether')
+      });
+    //account 3
+    await fundraiser.methods.contribute().send({
+        from: accounts[4],
+        value: web3.utils.toWei('0.1', 'ether')
+      });
+    await fundraiser.methods.approveRequest(0).send({
+      from:accounts[2]
+    });
+    await fundraiser.methods.approveRequest(0).send({
+      from:accounts[3]
+    });
+    await fundraiser.methods.approveRequest(0).send({
+      from:accounts[4]
+    });
+    await fundraiser.methods.finalizeRequest(0).send({
+      from:accounts[0],
+    });
+    const afterBalance = await web3.eth.getBalance(accounts[1]);
+    const difference = afterBalance - beforeBalance;
+    assert(difference == web3.utils.toWei('0.02', 'ether'));
+  });
+
+  it('Does not allow to finalize request by anyone else than manager',async ()=>{
+    await fundraiser.methods.createRequest(
+      'Description',
+      '100',
+      accounts[1]
+    ).send({
+      from: accounts[0],
+      gas: '5000000'
+    });
+    const beforeBalance = await web3.eth.getBalance(accounts[1]);
+    //Account 1
+    await fundraiser.methods.contribute().send({
+        from: accounts[2],
+        value: '101'
+      });
+    //Account 2
+    await fundraiser.methods.contribute().send({
+        from: accounts[3],
+        value: '101'
+      });
+    //account 3
+    await fundraiser.methods.contribute().send({
+        from: accounts[4],
+        value: '101'
+      });
+    await fundraiser.methods.approveRequest(0).send({
+      from:accounts[2]
+    });
+    await fundraiser.methods.approveRequest(0).send({
+      from:accounts[3]
+    });
+    await fundraiser.methods.approveRequest(0).send({
+      from:accounts[4]
+    });
+    try{
+    await fundraiser.methods.finalizeRequest(0).send({
+      from:accounts[5],
+    });
+    assert(false);
+  }catch(error){
+    assert(error);
+  }
+  });
+
+  it('Does not allow to approve a request anyone else than contributor',async ()=>{
+    await fundraiser.methods.createRequest(
+      'Description',
+      '100',
+      accounts[1]
+    ).send({
+      from: accounts[0],
+      gas: '5000000'
+    });
+    const beforeBalance = await web3.eth.getBalance(accounts[1]);
+    //Account 1
+    await fundraiser.methods.contribute().send({
+        from: accounts[2],
+        value: '101'
+      });
+    //Account 2
+    await fundraiser.methods.contribute().send({
+        from: accounts[3],
+        value: '101'
+      });
+    //account 3
+    await fundraiser.methods.contribute().send({
+        from: accounts[4],
+        value: '101'
+      });
+    try{
+    await fundraiser.methods.approveRequest(0).send({
+      from:accounts[5]
+    });
+    assert(false);
+  }catch(error){
+    assert(error);
+  }
+  });
+
+
 
 })

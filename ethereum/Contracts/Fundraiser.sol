@@ -39,7 +39,6 @@ contract Fundraiser {
     function Fundraiser(uint minimum, address creator) public {
         manager = creator;
         minimumContribution = minimum;
-
     }
 
     function contribute() payable public {
