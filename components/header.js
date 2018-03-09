@@ -8,7 +8,7 @@ export default () => {
         marginTop: '20px'
       }}
     >
-      <Menu.Item>Crowdcoin</Menu.Item>
+      <Menu.Item>IdeaCoin</Menu.Item>
 
       <Menu.Menu position="right">
         <Menu.Item>Fundraisers</Menu.Item>

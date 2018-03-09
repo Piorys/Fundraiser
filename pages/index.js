@@ -3,7 +3,7 @@ import factory from "../ethereum/factory";
 import { Card, Button } from "semantic-ui-react";
 import Layout from "../components/layout";
 
-class fundraiserIndex extends Component {
+class FundraiserIndex extends Component {
   static async getInitialProps() {
     const fundraisers = await factory.methods.getFundraisers().call();
     return { fundraisers };
@@ -24,17 +24,13 @@ class fundraiserIndex extends Component {
     return(
     <Layout>
       <div>
-        <link
-          rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css"
-        />
         <h3> Open Fundraisers </h3>
         <Button floated="right" content="add new fundraiser" icon="add circle" primary />
-        {this.renderFundraisers()}        
+        {this.renderFundraisers()}
       </div>
     </Layout>
   );
   }
 }
 
-export default fundraiserIndex;
+export default FundraiserIndex;
