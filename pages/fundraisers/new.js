@@ -3,9 +3,12 @@ import Layout from "../../components/layout";
 import { Button, Form, Input, Message } from "semantic-ui-react";
 import factory from "../../ethereum/factory";
 import web3 from "../../ethereum/web3";
+import {Router} from "../../routes";
+
 //TODO:
 // => WEI - ETH converter
 // => Form validation
+
 class FundraiserNew extends Component {
   state = {
     minumumContribution: "",
@@ -27,6 +30,9 @@ class FundraiserNew extends Component {
         .send({
           from: accounts[0]
         });
+
+      Router.pushRoute('/');
+      
     } catch (error) {
       this.setState({ errorMsg: error.message });
       console.log('Error was thrown, detailed description below:')
