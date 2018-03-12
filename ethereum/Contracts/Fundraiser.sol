@@ -6,6 +6,7 @@ contract FundraiserFactory {
     function createFundraiser(uint minimum) public {
         address newFundraiser = new Fundraiser(minimum, msg.sender);
         deployedFundraisers.push(newFundraiser);
+        //TODO Add a short description of a fundraiser
     }
 
     function getFundraisers() public view returns(address[]){
@@ -80,6 +81,22 @@ contract Fundraiser {
 
         request.recipient.transfer(request.value);
         request.complete = true;
+    }
+
+    function getSummary() public view returns(
+      uint, uint, uint, uint, address
+      ){
+      return (
+        minimumContribution,
+        this.balance,
+        requests.length,
+        approversCount,
+        manager
+        );
+    }
+
+    function getRequestsCount() public view returns(uint){
+      return requests.length;
     }
 
 

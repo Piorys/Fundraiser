@@ -10,9 +10,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _semanticUiReact = require("semantic-ui-react");
 
+var _routes = require("../routes");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _jsxFileName = "/Users/piotrryszewski/Desktop/Projekty/Fundraiser/components/header.js";
+var _jsxFileName = "C:\\Users\\piotr.ryszewski\\Documents\\Projects\\Fundraiser\\components\\header.js";
 
 exports.default = function () {
   return _react2.default.createElement(_semanticUiReact.Menu, {
@@ -21,27 +23,36 @@ exports.default = function () {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 7
     }
-  }, _react2.default.createElement(_semanticUiReact.Menu.Item, {
-    __source: {
+  }, _react2.default.createElement(_routes.Link, { route: "/", __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
     }
-  }, "IdeaCoin"), _react2.default.createElement(_semanticUiReact.Menu.Menu, { position: "right", __source: {
+  }, _react2.default.createElement("a", { className: "item", __source: {
       fileName: _jsxFileName,
       lineNumber: 13
     }
-  }, _react2.default.createElement(_semanticUiReact.Menu.Item, {
-    __source: {
+  }, "IdeaCoin")), _react2.default.createElement(_semanticUiReact.Menu.Menu, { position: "right", __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 18
     }
-  }, "Fundraisers"), _react2.default.createElement(_semanticUiReact.Menu.Item, {
-    __source: {
+  }, _react2.default.createElement(_routes.Link, { route: "/", __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 19
     }
-  }, "+")));
+  }, _react2.default.createElement("a", { className: "item", __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    }
+  }, "Fundraisers")), _react2.default.createElement(_routes.Link, { route: "/fundraisers/new", __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    }
+  }, _react2.default.createElement("a", { className: "item", __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    }
+  }, "+"))));
 };
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvaGVhZGVyLmpzIl0sIm5hbWVzIjpbIlJlYWN0IiwiTWVudSIsIm1hcmdpblRvcCJdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUEsQUFBTzs7OztBQUNQLEFBQVMsQUFFVDs7Ozs7O2tCQUFlLFlBQU0sQUFDbkI7eUJBQ0UsQUFBQzs7aUJBQUQsQUFDUyxBQUNNO0FBRE4sQUFDTDs7Z0JBRko7a0JBQUEsQUFLRTtBQUxGO0FBQ0UsR0FERixrQkFLRyxjQUFELHNCQUFBLEFBQU07O2dCQUFOO2tCQUFBO0FBQUE7QUFBQSxLQUxGLEFBS0UsQUFFQSw2QkFBQyxjQUFELHNCQUFBLEFBQU0sUUFBSyxVQUFYLEFBQW9CO2dCQUFwQjtrQkFBQSxBQUNFO0FBREY7cUJBQ0csY0FBRCxzQkFBQSxBQUFNOztnQkFBTjtrQkFBQTtBQUFBO0FBQUEsS0FERixBQUNFLEFBQ0EsZ0NBQUMsY0FBRCxzQkFBQSxBQUFNOztnQkFBTjtrQkFBQTtBQUFBO0FBQUEsS0FWTixBQUNFLEFBT0UsQUFFRSxBQUlQO0FBZkQiLCJmaWxlIjoiaGVhZGVyLmpzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy9waW90cnJ5c3pld3NraS9EZXNrdG9wL1Byb2pla3R5L0Z1bmRyYWlzZXIifQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHNcXGhlYWRlci5qcyJdLCJuYW1lcyI6WyJSZWFjdCIsIk1lbnUiLCJMaW5rIiwibWFyZ2luVG9wIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQSxBQUFPOzs7O0FBQ1AsQUFBUzs7QUFDVCxBQUFRLEFBQVcsQUFFbkI7Ozs7OztrQkFBZSxZQUFNLEFBQ25CO3lCQUNFLEFBQUM7O2lCQUFELEFBQ1MsQUFDTTtBQUROLEFBQ0w7O2dCQUZKO2tCQUFBLEFBS0U7QUFMRjtBQUNFLEdBREYsa0JBS0UsQUFBQyw4QkFBSyxPQUFOLEFBQVk7Z0JBQVo7a0JBQUEsQUFDRTtBQURGO3FCQUNFLGNBQUEsT0FBRyxXQUFILEFBQWE7Z0JBQWI7a0JBQUE7QUFBQTtLQU5KLEFBS0UsQUFDRSxBQUtGLDhCQUFDLGNBQUQsc0JBQUEsQUFBTSxRQUFLLFVBQVgsQUFBb0I7Z0JBQXBCO2tCQUFBLEFBQ0U7QUFERjtxQkFDRSxBQUFDLDhCQUFLLE9BQU4sQUFBWTtnQkFBWjtrQkFBQSxBQUNFO0FBREY7cUJBQ0UsY0FBQSxPQUFHLFdBQUgsQUFBYTtnQkFBYjtrQkFBQTtBQUFBO0tBRkosQUFDRSxBQUNFLEFBSUYsaUNBQUEsQUFBQyw4QkFBSyxPQUFOLEFBQVk7Z0JBQVo7a0JBQUEsQUFDRTtBQURGO3FCQUNFLGNBQUEsT0FBRyxXQUFILEFBQWE7Z0JBQWI7a0JBQUE7QUFBQTtLQW5CUixBQUNFLEFBV0UsQUFNRSxBQUNFLEFBT1Q7QUEzQkQiLCJmaWxlIjoiaGVhZGVyLmpzIiwic291cmNlUm9vdCI6IkM6L1VzZXJzL3Bpb3RyLnJ5c3pld3NraS9Eb2N1bWVudHMvUHJvamVjdHMvRnVuZHJhaXNlciJ9
