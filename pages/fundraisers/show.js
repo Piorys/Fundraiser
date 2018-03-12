@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Layout from "../../components/layout";
 import Fundraiser from "../../ethereum/fundraiser";
-import { Card } from "semantic-ui-react";
+import { Card, Grid } from "semantic-ui-react";
 import web3 from '../../ethereum/web3'
+import ContributeForm from '../../components/ContributeForm';
 
 class FundraiserShow extends Component {
   static async getInitialProps(props) {
@@ -69,7 +70,15 @@ class FundraiserShow extends Component {
     return (
       <Layout>
         <h3>Fundraiser</h3>
-        {this.renderCards()}
+        <Grid>
+          <Grid.Column width={10}>
+            {this.renderCards()}
+          </Grid.Column>
+          <Grid.Column width={6}>
+            <ContributeForm/>
+          </Grid.Column>
+        </Grid>
+
       </Layout>
     );
   }
