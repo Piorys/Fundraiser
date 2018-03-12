@@ -6,6 +6,16 @@ routes.add(
   '/fundraisers/new'
 );
 
+routes.add(
+  '/fundraisers/:address/requests',
+  '/fundraisers/requests/index'
+);
+
+routes.add(
+  '/fundraisers/:address/requests/new',
+  '/fundraisers/requests/new'
+);
+
 //General rule, anything other add above this
 routes.add(
   '/fundraisers/:address',

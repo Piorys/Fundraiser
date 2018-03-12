@@ -4,6 +4,7 @@ import Fundraiser from "../ethereum/fundraiser";
 import web3 from "../ethereum/web3";
 import {Router} from '../routes'
 // TODO form validation
+
 class ContributeForm extends Component {
   state = {
     value: "",
