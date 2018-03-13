@@ -5,18 +5,34 @@ import { Card, Grid, Button } from "semantic-ui-react";
 import { Link } from "../../../routes";
 
 class RequestIndex extends Component {
-
-  static async getInitialProps(props){
-    const {address} = props.query
-    return {address};
+  static async getInitialProps(props) {
+    const { address } = props.query;
+    return { address };
   }
   render() {
     return (
       <Layout>
         <h3> List of Requests </h3>
+
+
+        <Link route={`/fundraisers/${this.props.address}`}>
+          <a>
+            <Button
+              content="Back"
+              icon="left arrow"
+              labelPosition="left"
+              primary
+            />
+          </a>
+        </Link>
         <Link route={`/fundraisers/${this.props.address}/requests/new`}>
           <a>
-            <Button primary >Add Request</Button>
+            <Button
+              content="Add Request"
+              icon="plus"
+              labelPosition="right"
+              primary
+            />
           </a>
         </Link>
       </Layout>
