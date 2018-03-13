@@ -32,12 +32,11 @@ class RequestNew extends Component {
         .createRequest(
           this.state.description,
           web3.utils.toWei(this.state.value, "ether"),
-          this.state.reciepient
+          this.state.reciepent
         )
         .send({
           from: accounts[0]
         });
-      Router.pushRoute();
     } catch (error) {
       this.setState({ errorMsg: error.message });
     }
